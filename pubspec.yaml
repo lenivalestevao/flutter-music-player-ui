@@ -1,0 +1,20 @@
+name: waveline_music
+description: Free Flutter music streaming UI template with a mini player, full-screen player, queue, search and library. No backend, no extra packages.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.0
+  flutter: ">=3.32.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
