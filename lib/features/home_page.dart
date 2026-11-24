@@ -26,18 +26,20 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
             child: Text(
               greeting(DateTime.now()),
-              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w800),
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: GridView.count(
-              crossAxisCount: 2,
+            child: GridView(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
-              childAspectRatio: 3.1,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+                mainAxisExtent: 42,
+              ),
               children: [
                 for (final p in quick)
                   InkWell(
@@ -50,8 +52,8 @@ class HomePage extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          CoverArt(colors: p.colors, size: 56, radius: 8),
-                          const SizedBox(width: 10),
+                          CoverArt(colors: p.colors, size: 42, radius: 6),
+                          const SizedBox(width: 8),
                           Expanded(
                             child: Text(
                               p.name,
@@ -59,7 +61,7 @@ class HomePage extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 fontWeight: FontWeight.w700,
-                                fontSize: 13,
+                                fontSize: 12,
                               ),
                             ),
                           ),
@@ -72,7 +74,7 @@ class HomePage extends StatelessWidget {
           ),
           const SectionTitle('Made for you'),
           SizedBox(
-            height: 214,
+            height: 190,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -91,7 +93,7 @@ class HomePage extends StatelessWidget {
           ),
           const SectionTitle('Recently played'),
           SizedBox(
-            height: 214,
+            height: 190,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -154,13 +156,13 @@ class _Card extends StatelessWidget {
               title,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontWeight: FontWeight.w700),
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700),
             ),
             Text(
               subtitle,
-              maxLines: 2,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: AppColors.muted, fontSize: 12),
+              style: const TextStyle(color: AppColors.muted, fontSize: 11),
             ),
           ],
         ),

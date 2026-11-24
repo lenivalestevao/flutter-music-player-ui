@@ -21,7 +21,7 @@ class MiniPlayer extends StatelessWidget {
     return GestureDetector(
       onTap: () => openNowPlaying(context),
       child: Container(
-        margin: const EdgeInsets.fromLTRB(8, 0, 8, 6),
+        margin: const EdgeInsets.fromLTRB(10, 0, 10, 6),
         decoration: BoxDecoration(
           color: Color.alphaBlend(
             track.colors.first.withValues(alpha: 0.35),
@@ -33,7 +33,7 @@ class MiniPlayer extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 8, 4, 4),
+              padding: const EdgeInsets.fromLTRB(8, 6, 4, 0),
               child: Row(
                 children: [
                   CoverArt(colors: track.colors, size: 44),

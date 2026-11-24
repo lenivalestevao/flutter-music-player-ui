@@ -52,7 +52,7 @@ class NowPlayingPage extends StatelessWidget {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 34),
             child: Column(
               children: [
                 Row(
@@ -68,8 +68,7 @@ class NowPlayingPage extends StatelessWidget {
                           const Text(
                             'PLAYING FROM',
                             style: TextStyle(
-                              fontSize: 11,
-                              letterSpacing: 1.2,
+                              fontSize: 10,
                               color: AppColors.muted,
                             ),
                           ),
@@ -111,14 +110,14 @@ class NowPlayingPage extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              fontSize: 24,
+                              fontSize: 23,
                               fontWeight: FontWeight.w800,
                             ),
                           ),
                           Text(
                             track.artist,
                             style: const TextStyle(
-                              fontSize: 16,
+                              fontSize: 15,
                               color: AppColors.muted,
                             ),
                           ),
@@ -131,7 +130,7 @@ class NowPlayingPage extends StatelessWidget {
                         player.isLiked(track.id)
                             ? Icons.favorite_rounded
                             : Icons.favorite_border_rounded,
-                        size: 28,
+                        size: 32,
                         color: player.isLiked(track.id)
                             ? AppColors.accent
                             : Colors.white,
@@ -149,10 +148,10 @@ class NowPlayingPage extends StatelessWidget {
                   children: [
                     Text(fmtTime(player.position),
                         style: const TextStyle(
-                            fontSize: 12, color: AppColors.muted)),
+                            fontSize: 11, color: AppColors.muted)),
                     Text(fmtTime(track.duration),
                         style: const TextStyle(
-                            fontSize: 12, color: AppColors.muted)),
+                            fontSize: 11, color: AppColors.muted)),
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -173,11 +172,11 @@ class NowPlayingPage extends StatelessWidget {
                     ),
                     IconButton.filled(
                       onPressed: player.togglePlay,
-                      iconSize: 38,
+                      iconSize: 36,
                       style: IconButton.styleFrom(
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.black,
-                        minimumSize: const Size(68, 68),
+                        minimumSize: const Size(64, 64),
                       ),
                       icon: Icon(
                         player.isPlaying

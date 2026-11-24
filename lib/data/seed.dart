@@ -54,14 +54,14 @@ final List<Playlist> seedPlaylists = [
   Playlist(
     id: 'p1',
     name: 'Daily Mix 1',
-    description: 'Luna Vale, Mara Quinn and more',
+    description: 'Luna Vale, Mara Quinn',
     tracks: _pick(['t01', 't04', 't05', 't10', 't14', 't02']),
     colors: const [Color(0xFF7C5CFF), Color(0xFFEC4899)],
   ),
   Playlist(
     id: 'p2',
     name: 'Late Night Drive',
-    description: 'Neon lights, empty roads',
+    description: 'Neon lights, open road',
     tracks: _pick(['t02', 't09', 't03', 't13', 't06']),
     colors: const [Color(0xFF312E81), Color(0xFF0EA5E9)],
   ),

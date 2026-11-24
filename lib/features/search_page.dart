@@ -68,7 +68,7 @@ class _SearchPageState extends State<SearchPage> {
               cursorColor: Colors.black,
               decoration: InputDecoration(
                 hintText: 'What do you want to listen to?',
-                hintStyle: const TextStyle(color: Color(0xFF55606B)),
+                hintStyle: const TextStyle(color: Color(0xFF55606B), fontSize: 13),
                 prefixIcon: const Icon(Icons.search_rounded, color: Colors.black),
                 suffixIcon: searching
                     ? IconButton(
@@ -114,47 +114,54 @@ class _SearchPageState extends State<SearchPage> {
                       const Text(
                         'Browse all',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 17,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
                       const SizedBox(height: 12),
-                      GridView.count(
-                        crossAxisCount: 2,
+                      GridView(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        mainAxisSpacing: 12,
-                        crossAxisSpacing: 12,
-                        childAspectRatio: 1.7,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 8,
+                          mainAxisExtent: 88,
+                        ),
                         children: [
                           for (final g in seedGenres)
                             GestureDetector(
                               onTap: () => _setQuery(g.name),
                               child: Container(
-                                padding: const EdgeInsets.all(12),
+                                clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
                                   color: g.color,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Stack(
                                   children: [
-                                    Text(
-                                      g.name,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.w800,
-                                        fontSize: 16,
+                                    Positioned(
+                                      right: -16,
+                                      bottom: -24,
+                                      child: Container(
+                                        width: 68,
+                                        height: 68,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white
+                                              .withValues(alpha: 0.18),
+                                        ),
                                       ),
                                     ),
                                     Positioned(
-                                      right: -6,
-                                      bottom: -6,
-                                      child: Transform.rotate(
-                                        angle: 0.4,
-                                        child: Icon(
-                                          g.icon,
-                                          size: 56,
-                                          color: Colors.white
-                                              .withValues(alpha: 0.35),
+                                      left: 14,
+                                      top: 12,
+                                      child: Text(
+                                        g.name,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 15,
                                         ),
                                       ),
                                     ),

@@ -25,16 +25,27 @@ ThemeData buildTheme() {
       elevation: 0,
       scrolledUnderElevation: 0,
     ),
-    navigationBarTheme: const NavigationBarThemeData(
+    navigationBarTheme: NavigationBarThemeData(
       backgroundColor: AppColors.bg,
       indicatorColor: AppColors.card2,
+      labelTextStyle: WidgetStateProperty.resolveWith(
+        (states) => TextStyle(
+          fontSize: 11,
+          fontWeight: states.contains(WidgetState.selected)
+              ? FontWeight.w600
+              : FontWeight.w400,
+          color: states.contains(WidgetState.selected)
+              ? Colors.white
+              : AppColors.muted,
+        ),
+      ),
     ),
     sliderTheme: const SliderThemeData(
       trackHeight: 4,
       activeTrackColor: Colors.white,
       inactiveTrackColor: Colors.white24,
       thumbColor: Colors.white,
-      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 6),
+      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 7),
       overlayShape: RoundSliderOverlayShape(overlayRadius: 14),
     ),
     popupMenuTheme: const PopupMenuThemeData(color: AppColors.card2),
